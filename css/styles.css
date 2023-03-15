@@ -29,7 +29,7 @@ ul {
 }
 img {
   display: block;
-  min-width: 100%;
+  max-width: 100%;
   height: auto;
 }
 address {
@@ -129,7 +129,6 @@ button {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .header-nav {
   display: flex;
@@ -150,13 +149,18 @@ button {
 }
 /*---------------------Секція 1-герой------------------*/
 .hero {
-  background-color: var(--color-navy-blue);
+  margin: 0 auto;
   padding-top: 188px;
   padding-bottom: 188px;
-
   text-align: center;
-  padding-top: 188px;
-  padding-bottom: 188px;
+  max-width: 1440px;
+
+  background-color: var(--color-navy-blue);
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
 }
 .title-hero {
   font-size: 56px;
@@ -201,29 +205,97 @@ button {
 }
 .main-list {
   display: flex;
-  flex-wrap: wrap;
+
   gap: 24px;
 }
 .features-item {
+  flex-basis: calc((100%-3 * 24px) / 4);
+}
+.features-icon {
+  background-color: #f4f4fd;
   max-width: 264px;
+  height: 112px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 /* -----------Секція 3------------------------ */
 .main-item {
-  max-width: 360px;
+  flex-basis: calc((100%-2 * 24px) / 3);
 }
 /*------------------- Секція 4-------------------- */
 .section-team {
   background-color: var(--color-cloud);
 }
 .team-text {
-  padding: 32px 0;
+  padding: 32px 16px;
   text-align: center;
 }
 .team-item {
   background-color: var(--color-white);
-
-  max-width: 264px;
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+
+  flex-basis: calc((100%-3 * 24px) / 4);
+}
+.team-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+.team-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-iris);
+  border-radius: 50%;
+}
+.team-link:hover,
+.team-link:focus {
+  background-color: var(--color-ocean);
+}
+.team-item-icon {
+  height: 40px;
+  flex-basis: calc((100%-3 * 24px) / 4);
+}
+/* ----------------Секція 5----------- */
+
+.customers-list {
+  display: flex;
+
+  gap: 24px;
+}
+.customers-item {
+  height: 88px;
+  flex-basis: calc((100%-5 * 24px) / 6);
+}
+.customers-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  color: var(--color-light-slate);
+}
+
+.customers-link:hover,
+.customers-link:focus {
+  border-color: var(--color-ocean);
+  color: var(--color-ocean);
+}
+.customers-icon {
+  fill: currentColor;
 }
 
 /*------------------ Футер------------------------- */
@@ -233,16 +305,55 @@ button {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+.footer-container {
+  display: flex;
+  align-items: baseline;
+  gap: 120px;
+}
 .studio {
   color: var(--color-cloud);
 }
 .footer-text {
   color: var(--color-cornflower);
 
-  max-width: 264px;
+  width: 264px;
 }
 .footer-link {
   display: block;
+  margin-bottom: 16px;
+}
+.footer-list {
+  display: flex;
+  gap: 16px;
+  width: 208px;
+}
+
+.media-link {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+}
+.media-link:hover,
+.media-link:focus {
+  background-color: var(--color-green);
+}
+.media-item {
+  height: 40px;
+  flex-basis: calc((100%-16px * 3) / 4);
+}
+.media-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: #ffffff;
   margin-bottom: 16px;
 }
 /*-------------- Portfolio------------ */
@@ -253,13 +364,15 @@ button {
   border-radius: 4px;
   padding: 12px 24px;
   border: 1px solid #e7e9fc;
-  padding: 12px 24px;
 }
 .list-button:hover,
 .list-button:focus {
   color: var(--color-white);
   background-color: var(--color-ocean);
   border-color: transparent;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
 }
 .container-list {
   display: flex;
@@ -282,6 +395,11 @@ button {
 }
 .portfolio-item {
   max-width: 360px;
+}
+.portfolio-link:hover,
+.portfolio-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .card-content {
   padding: 32px 16px 32px 16px;
